@@ -3,6 +3,7 @@ package com.heitor.ocb
 import com.heitor.ocb.GlobalConfig
 
 class Member {
+    Integer id
     String firstName
     String lastName
     String email

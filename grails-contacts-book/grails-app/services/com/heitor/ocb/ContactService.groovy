@@ -16,6 +16,7 @@ class ContactService {
             if (!contact.hasErrors()){
                 response.isSuccess = true
                 contactDetailsService.createOrUpdateDetails(contact, params)
+                uploadImage(contact, request)
             }
         }
         return response
@@ -29,6 +30,7 @@ class ContactService {
             if (!contact.hasErrors()){
                 response.isSuccess = true
                 contactDetailsService.createOrUpdateDetails(contact, params)
+                uploadImage(contact, request)
             }
         }
         return response
@@ -60,5 +62,15 @@ class ContactService {
             return false
         }
         return true
+    }
+
+    def uploadImage(Contact contact, HttpServletRequest request){
+        if (request.getFile("contactImage") && !request.getFile("contactImage").filename.equals("")){
+            String image = FileUtil.uploadContactImage(contact.id, request.getFile("contactImage"))
+            if (!image.equals("")){
+                contact.image = image
+                contact.save(flush:true)
+            }
+        }
     }
 }

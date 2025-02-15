@@ -1,4 +1,5 @@
 <meta name="layout" content="main"/>
+
 <div class="card">
     <div class="card-header">
         <g:message code="contact.group" args="['List Of']"/>
@@ -18,18 +19,18 @@
             </tr>
             </thead>
             <tbody>
-            <g:each in="${contactGroups}" var="group">
-                <tr>
-                    <td>${group?.name}</td>
-                    <td>
-                        <div class="btn-group">
-                            <g:link controller="contactGroup" action="details" class="btn btn-secondary" id="${group.id}"><i class="fas fa-eye"></i></g:link>
-                            <g:link controller="contactGroup" action="edit" class="btn btn-secondary" id="${group.id}"><i class="fas fa-edit"></i></g:link>
-                            <g:link controller="contactGroup" action="delete" id="${group.id}" class="btn btn-secondary delete-confirmation"><i class="fas fa-trash"></i></g:link>
-                        </div>
-                    </td>
-                </tr>
-            </g:each>
+                <g:each in="${contactGroups}" var="group">
+                    <tr>
+                        <td>${group?.name}</td>
+                        <td>
+                            <div class="btn-group">
+                                <g:link controller="contactGroup" action="details" class="btn btn-secondary" id="${group.id}"><i class="fas fa-eye"></i></g:link>
+                                <g:link controller="contactGroup" action="edit" class="btn btn-secondary" id="${group.id}"><i class="fas fa-edit"></i></g:link>
+                                <g:link controller="contactGroup" action="delete" id="${group.id}" class="btn btn-secondary delete-confirmation"><i class="fas fa-trash"></i></g:link>
+                            </div>
+                        </td>
+                    </tr>
+                </g:each>
             </tbody>
         </table>
         <div class="paginate">

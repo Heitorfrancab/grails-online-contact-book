@@ -1,4 +1,5 @@
 <meta name="layout" content="public"/>
+
 <div class="card">
     <div class="card-header">
         Member Registration

@@ -1,4 +1,5 @@
 <meta name="layout" content="main"/>
+
 <div class="card">
     <div class="card-header">
         <g:message code="contact.group" args="['Details']"/>

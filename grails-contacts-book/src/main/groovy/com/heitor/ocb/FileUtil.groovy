@@ -26,4 +26,22 @@ class FileUtil {
         }
         return ""
     }
+
+    public static Boolean deleteContactImage(String filename, Integer contactID){
+        try{
+            String contactImagePath = "${getRootPath()}contact-image/"
+            String contactImageFile = contactImagePath + contactID + "-" + filename
+            File file = new File(contactImageFile)
+            if(file.delete()){
+                return true
+            }else{
+                return false
+            }
+        }
+            catch (Exception e)
+            {
+                return false;
+            }
+    }
 }
+

@@ -57,6 +57,7 @@ class ContactService {
     def delete(Contact contact) {
         try {
             contact.delete(flush: true)
+            FileUtil.deleteContactImage(contact.image, contact.id)
         } catch (Exception e) {
             println(e.getMessage())
             return false

@@ -76,16 +76,17 @@ class ContactDetailsService {
 
 
     def createOrUpdateDetails(Contact contact, def params) {
-        if (params.type instanceof String) {
-            saveOrUpdate(getContactDetailsParamsParse(contact, params))
-        } else if (params.type && params.type.getClass().isArray()) {
-            Integer index = 0
-            params.type.each {
-                saveOrUpdate(getContactDetailsParamsParse(contact,  params, index))
-                index++
+        if (params.mobile != "" || params.phone != "" || params.email != "" || params.website != "" || params.address != "")
+            if (params.type instanceof String) {
+                saveOrUpdate(getContactDetailsParamsParse(contact, params))
+            } else if (params.type && params.type.getClass().isArray()) {
+                Integer index = 0
+                params.type.each {
+                    saveOrUpdate(getContactDetailsParamsParse(contact,  params, index))
+                    index++
+                }
             }
         }
-    }
 
 
     def getById(Serializable id){
